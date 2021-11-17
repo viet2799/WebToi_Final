@@ -54,3 +54,7 @@ C:\Users\nguye\source\repos\WebToi\WebToi_final_01\obj\Debug\WebToi_final_01.csp
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\obj\Debug\WebToi_final_01.csproj.CopyComplete
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\obj\Debug\WebToi_final_01.dll
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\obj\Debug\WebToi_final_01.pdb
+C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\EntityFramework.dll
+C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\EntityFramework.SqlServer.dll
+C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\EntityFramework.xml
+C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\EntityFramework.SqlServer.xml

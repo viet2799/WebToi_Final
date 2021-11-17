@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -45,10 +46,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,11 +129,26 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DanhMucAdminController.cs" />
+    <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChiTietHD.cs" />
+    <Compile Include="Models\DanhMuc.cs" />
+    <Compile Include="Models\HoaDon.cs" />
+    <Compile Include="Models\NguoiDung.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\SanPham.cs" />
+    <Compile Include="Models\Shop.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\ThuocTinh.cs" />
+    <Compile Include="Models\ThuocTinhSP.cs" />
+    <Compile Include="Models\UserInRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +186,24 @@
     <Content Include="Assets\js\flex-slider.js" />
     <Content Include="Assets\js\isotope.js" />
     <Content Include="Assets\js\owl.js" />
+    <Content Include="Content\Admin\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\Admin\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\css\theme.css" />
+    <Content Include="Content\Admin\images\bg.png" />
+    <Content Include="Content\Admin\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\Admin\images\glyphicons-halflings.png" />
+    <Content Include="Content\Admin\images\icons\css\font-awesome.css" />
+    <Content Include="Content\Admin\images\img.jpg" />
+    <Content Include="Content\Admin\images\jquery-ui\picker.png" />
+    <Content Include="Content\Admin\images\user.png" />
+    <Content Include="Content\Admin\js\bootstrap.min.js" />
+    <Content Include="Content\Admin\js\common.js" />
+    <Content Include="Content\Admin\js\datatables\jquery.dataTables.js" />
+    <Content Include="Content\Admin\js\flot\jquery.flot.js" />
+    <Content Include="Content\Admin\js\flot\jquery.flot.pie.js" />
+    <Content Include="Content\Admin\js\flot\jquery.flot.resize.js" />
+    <Content Include="Content\Admin\js\jquery-1.9.1.min.js" />
+    <Content Include="Content\Admin\js\jquery-ui-1.10.1.custom.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -184,6 +226,16 @@
     <Content Include="Assets\fonts\slick.eot" />
     <Content Include="Assets\fonts\slick.ttf" />
     <Content Include="Assets\fonts\slick.woff" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Member\Views\web.config" />
+    <Content Include="Content\Admin\images\icons\font\fontawesome-webfont3294.eot" />
+    <Content Include="Content\Admin\images\icons\font\fontawesome-webfont3294.ttf" />
+    <Content Include="Content\Admin\images\icons\font\fontawesome-webfont3294.woff" />
+    <Content Include="Content\Admin\images\icons\font\fontawesome-webfontd41d.eot" />
+    <Content Include="Areas\Admin\Views\DanhMucAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DanhMucAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DanhMucAdmin\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -205,13 +257,6 @@
     <Content Include="vendor\jquery\jquery.min.js" />
     <Content Include="vendor\jquery\jquery.slim.js" />
     <Content Include="vendor\jquery\jquery.slim.min.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -230,10 +275,21 @@
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shop\Details.cshtml" />
+    <Content Include="Web.Config" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <None Include="Web.Debug.Config">
+      <DependentUpon>Web.Config</DependentUpon>
+    </None>
+    <None Include="Web.Release.Config">
+      <DependentUpon>Web.Config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Member\Controllers\" />
+    <Folder Include="Areas\Member\Data\" />
+    <Folder Include="Areas\Member\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -247,6 +303,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -281,7 +340,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
