@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebToi_final_01.Models;
 
 namespace WebToi_final_01.Areas.Admin.Controllers
 {
@@ -11,7 +12,11 @@ namespace WebToi_final_01.Areas.Admin.Controllers
         // GET: Admin/DanhMucAdmin
         public ActionResult Index()
         {
-            return View();
+            using (var con = new Shop())
+            {
+                var model = con.DanhMucs.ToList();
+                return View(model);
+            }
         }
 
         // GET: Admin/DanhMucAdmin/Details/5

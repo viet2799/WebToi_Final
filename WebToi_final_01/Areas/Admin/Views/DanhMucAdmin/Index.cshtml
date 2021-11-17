@@ -4,6 +4,9 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+@using WebToi_final_01.Models;
+
+
 <div class="content">
 
     <div class="module">
@@ -23,17 +26,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @*@foreach (DanhMuc it in Model)
+                    @foreach (DanhMuc it in Model)
                     {
                         <tr>
 
                             <td>@it.MaDM</td>
                             <td>@it.TenDM</td>
 
-                            <td><a href="/Admin/DanhMucAd/Edit/@it.MaDM">Sửa</a></td>
-                            <td><a href="/Admin/DanhMucAd/Delete/@it.MaDM">Xóa</a></td>
+                            <td><a href="~/Admin/DanhMucAd/Edit/@it.MaDM">Sửa</a></td>
+                            <td><a href="~/Admin/DanhMucAd/Delete/@it.MaDM">Xóa</a></td>
                         </tr>
-                    }*@
+                    }
 
                 </tbody>
             </table>

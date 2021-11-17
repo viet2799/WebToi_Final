@@ -3,7 +3,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-
+@using WebToi_final_01.Models;
+@model List<SanPham>
 
 <div class="featured-page">
     <div class="container">
@@ -29,16 +30,45 @@
 <div class="featured container no-gutter">
 
     <div class="row posts">
-        <div id="1" class="item new col-md-4">
-            <a href="single-product.html">
-                <div class="featured-item">
-                    <img src="~/Assets/images/product-01.jpg" alt="">
-                    <h4>Proin vel ligula</h4>
-                    <h6>$15.00</h6>
-                </div>
-            </a>
-        </div>
-        <div id="2" class="item high col-md-4">
+        @foreach (SanPham it in Model)
+        {
+            <div  class="item new col-md-4">
+                <a href="@Url.Action("Details" , new { id = @it.MaDM})">
+                    <div class="featured-item">
+                        <img src="~/Assets/images/@it.UrlAnh" alt="">
+                        <h4>@it.TenSP</h4>
+                        <h6>@it.GiaSP</h6>
+                        <div>
+                            <h4>
+                            <a href="/Cart/AddItem/@it.MaSP?returnURL=@Request.RawUrl">
+                                Add to Cart
+                            </a>
+                            </h4>
+                        </div>
+                    </div>
+                    
+                </a>
+            </div>
+            @*<div id="2" class="item high col-md-4">
+                <a href="single-product.html">
+                    <div class="featured-item">
+                        <img src="~/Assets/images/@it.UrlAnh" alt="">
+                        <h4>@it.TenSP</h4>
+                        <h6>@it.GiaSP</h6>
+                    </div>
+                </a>
+            </div>
+            <div id="3" class="item low col-md-4">
+                <a href="single-product.html">
+                    <div class="featured-item">
+                        <img src="~/Assets/images/@it.UrlAnh" alt="">
+                        <h4>@it.TenSP</h4>
+                        <h6>@it.GiaSP</h6>
+                    </div>
+                </a>
+            </div>*@
+        }
+        @*<div id="2" class="item high col-md-4">
             <a href="single-product.html">
                 <div class="featured-item">
                     <img src="~/Assets/images/product-02.jpg" alt="">
@@ -109,6 +139,6 @@
                     <h6>$95.00</h6>
                 </div>
             </a>
-        </div>
+        </div>*@
     </div>
 </div>

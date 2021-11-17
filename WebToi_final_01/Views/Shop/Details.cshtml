@@ -3,6 +3,10 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+@using WebToi_final_01.Models;
+
+
+
 
 <div class="container">
     <a class="navbar-brand" href="#"><img src="~/Assets/images/header-logo.png" alt=""></a>
@@ -47,16 +51,16 @@
                     <div id="slider" class="flexslider">
                         <ul class="slides">
                             <li>
-                                <img src="~/Assets/images/big-01.jpg" />
+                                <img src="~/Assets/images/@Model.UrlAnh" />
                             </li>
                             <li>
-                                <img src="~/Assets/images/big-02.jpg" />
+                                <img src="~/Assets/images/@Model.UrlAnh" />
                             </li>
                             <li>
-                                <img src="~/Assets/images/big-03.jpg" />
+                                <img src="~/Assets/images/@Model.UrlAnh" />
                             </li>
                             <li>
-                                <img src="~/Assets/images/big-04.jpg" />
+                                <img src="~/Assets/images/@Model.UrlAnh" />
                             </li>
                             <!-- items mirrored twice, total of 12 -->
                         </ul>
@@ -120,13 +124,16 @@
             </div>
             <div class="col-md-12">
                 <div class="owl-carousel owl-theme">
-                    <a href="single-product.html">
-                        <div class="featured-item">
-                            <img src="~/Assets/images/item-01.jpg" alt="Item 1">
-                            <h4>Proin vel ligula</h4>
-                            <h6>$15.00</h6>
-                        </div>
-                    </a>
+                    @foreach (SanPham it in Model)
+                    {
+                        <a href="single-product.html">
+                            <div class="featured-item">
+                                <img src="~/Assets/images/@it.UrlAnh" alt="Item 1">
+                                <h4>@it.TenSP</h4>
+                                <h6>@it.GiaSP $</h6>
+                            </div>
+                        </a>
+                    }
                     <a href="single-product.html">
                         <div class="featured-item">
                             <img src="~/Assets/images/item-02.jpg" alt="Item 2">

@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using WebToi_final_01.Models;
 namespace WebToi_final_01.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            return View();
+            using (var con = new Shop())
+            {
+                var model = con.SanPhams.ToList();
+                return View(model);
+            }
         }
 
         public ActionResult About()
