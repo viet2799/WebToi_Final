@@ -40,7 +40,7 @@
                 <div class="owl-carousel owl-theme">
                     @foreach (SanPham it in Model)
                     {
-                        <a href="single-product.html">
+                        <a href="@Url.Action("Details" , "Shop" ,new { id = @it.MaDM})">
                             <div class="featured-item">
                                 <img src="~/Assets/images/@it.UrlAnh" alt="Item 1">
                                 <h4>@it.TenSP</h4>
