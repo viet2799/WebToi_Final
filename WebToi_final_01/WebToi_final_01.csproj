@@ -276,6 +276,7 @@
     <Content Include="Views\Shop\Details.cshtml" />
     <Content Include="Web.Config" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Shop\DMSP.cshtml" />
     <None Include="Web.Debug.Config">
       <DependentUpon>Web.Config</DependentUpon>
     </None>

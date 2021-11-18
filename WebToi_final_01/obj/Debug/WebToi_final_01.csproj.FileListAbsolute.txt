@@ -49,7 +49,6 @@ C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\System.Web.WebPages.Razor
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\Newtonsoft.Json.xml
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\Antlr3.Runtime.pdb
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\nguye\source\repos\WebToi\WebToi_final_01\obj\Debug\WebToi_final_01.csprojAssemblyReference.cache
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\obj\Debug\WebToi_final_01.csproj.CoreCompileInputs.cache
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\obj\Debug\WebToi_final_01.csproj.CopyComplete
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\obj\Debug\WebToi_final_01.dll
@@ -58,3 +57,4 @@ C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\EntityFramework.dll
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\EntityFramework.SqlServer.dll
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\EntityFramework.xml
 C:\Users\nguye\source\repos\WebToi\WebToi_final_01\bin\EntityFramework.SqlServer.xml
+C:\Users\nguye\source\repos\WebToi\WebToi_final_01\obj\Debug\WebToi_final_01.csprojAssemblyReference.cache

@@ -33,7 +33,7 @@
         @foreach (SanPham it in Model)
         {
             <div  class="item new col-md-4">
-                <a href="@Url.Action("Details" , new { id = @it.MaDM})">
+                <a href="@Url.Action("Details" , new { id = @it.MaSP})">
                     <div class="featured-item">
                         <img src="~/Assets/images/@it.UrlAnh" alt="">
                         <h4>@it.TenSP</h4>

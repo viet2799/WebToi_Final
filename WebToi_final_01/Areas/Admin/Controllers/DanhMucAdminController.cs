@@ -33,13 +33,19 @@ namespace WebToi_final_01.Areas.Admin.Controllers
 
         // POST: Admin/DanhMucAdmin/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(DanhMuc model)
         {
             try
             {
                 // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
+                using (var con = new Shop())
+                {
+                    con.DanhMucs.Add(model);
+                    con.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
             }
             catch
             {
@@ -50,40 +56,62 @@ namespace WebToi_final_01.Areas.Admin.Controllers
         // GET: Admin/DanhMucAdmin/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            using (var con = new Shop())
+            {
+                var model = con.DanhMucs.Find(id);
+
+                return View(model);
+            }
         }
 
         // POST: Admin/DanhMucAdmin/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(DanhMuc model)
         {
             try
             {
-                // TODO: Add update logic here
+                using (var con = new Shop())
+                {
+                    var obj = con.DanhMucs.Find(model.MaDM);
+                    obj.TenDM = model.TenDM;
 
-                return RedirectToAction("Index");
+                    con.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             catch
             {
-                return View();
+                return Redirect("/Admin/DanhMucAd/Edit/" + model.MaDM);
             }
         }
 
         // GET: Admin/DanhMucAdmin/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            using (var con = new Shop())
+            {
+                var model = con.DanhMucs.Find(id);
+
+                return View("Edit", model);
+            }
         }
 
         // POST: Admin/DanhMucAdmin/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(DanhMuc model)
         {
             try
             {
                 // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
+                using (var con = new Shop())
+                {
+                    var obj = con.DanhMucs.Find(model.MaDM);
+                    con.DanhMucs.Remove(obj);
+
+                    con.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             catch
             {

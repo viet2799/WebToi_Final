@@ -19,14 +19,22 @@ namespace WebToi_final_01.Controllers
                 return View(model);
             }
         }
-
-        // GET: Shop/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DMSP(int id)
         {
             using (var con = new Shop())
             {
                 var model = con.SanPhams.Where(x => x.MaDM == id).ToList();
-                return View("Index", model);
+                return View(model);
+            }
+        }
+
+        // GET: Shop/Details/5
+        public ActionResult Details(string id)
+        {
+            using (var con = new Shop())
+            {
+                var model = con.SanPhams.Where(x => x.MaSP == id).ToList();
+                return View(model);
             }
         }
 
