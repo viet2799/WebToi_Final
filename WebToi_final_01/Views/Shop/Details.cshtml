@@ -3,19 +3,16 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-@using WebToi_final_01.Models;
-@model List<SanPham>;
+@model WebToi_final_01.Models.SanPham;
+
 
 <div class="single-product">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading">
-                    <div class="line-dec"></div>
-                    @foreach (SanPham it in Model)
-                    {
-                        <h1>@it.TenSP</h1>
-                    }
+                    <div class="line-dec"></div>    
+                    <h1>@Html.DisplayNameFor(model => model.TenSP)</h1>
                 </div>
             </div>
             <div class="col-md-6">

@@ -10,32 +10,24 @@ namespace WebToi_final_01.Controllers
 {
     public class ShopController : Controller
     {
+        private Shop con = new Shop();
         // GET: Shop
         public ActionResult Index()
         {
-            using (var con = new Shop())
-            {
-                var model = con.SanPhams.ToList();
-                return View(model);
-            }
+            var model = con.SanPhams.ToList();
+            return View(model);
         }
         public ActionResult DMSP(int id)
         {
-            using (var con = new Shop())
-            {
-                var model = con.SanPhams.Where(x => x.MaDM == id).ToList();
-                return View(model);
-            }
+            var model = con.SanPhams.Where(x => x.MaDM == id).ToList();
+            return View(model);
         }
 
         // GET: Shop/Details/5
         public ActionResult Details(string id)
         {
-            using (var con = new Shop())
-            {
-                var model = con.SanPhams.Where(x => x.MaSP == id).ToList();
-                return View(model);
-            }
+            var model = con.SanPhams.Find(id);
+            return View(model);
         }
 
         // GET: Shop/Create
