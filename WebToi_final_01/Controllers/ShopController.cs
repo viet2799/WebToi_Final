@@ -20,9 +20,13 @@ namespace WebToi_final_01.Controllers
         public ActionResult DMSP(int id)
         {
             var model = con.SanPhams.Where(x => x.MaDM == id).ToList();
+            return View("Index",model);
+        }
+        public ActionResult TimKiem(string txt)
+        {
+            var model = con.SanPhams.Where(x => x.TenSP.Contains(txt));
             return View(model);
         }
-
         // GET: Shop/Details/5
         public ActionResult Details(string id)
         {

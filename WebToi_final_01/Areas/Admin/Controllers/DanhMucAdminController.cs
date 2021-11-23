@@ -20,6 +20,15 @@ namespace WebToi_final_01.Areas.Admin.Controllers
             return View(model);
 
         }
+        //[CustomAuthorize(Roles = "Admin")]
+
+        //public ActionResult ShowSp()
+        //{
+
+        //    var model = con.SanPhams.ToList();
+        //    return View(model);
+
+        //}
 
         // GET: Admin/DanhMucAdmin/Details/5
         public ActionResult Details(int id)
