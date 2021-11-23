@@ -9,14 +9,16 @@ namespace WebToi_final_01.Areas.Admin.Controllers
 {
     public class DanhMucAdminController : Controller
     {
+        private Shop con = new Shop();
         // GET: Admin/DanhMucAdmin
+        [CustomAuthorize(Roles = "Admin")]
+
         public ActionResult Index()
         {
-            using (var con = new Shop())
-            {
-                var model = con.DanhMucs.ToList();
-                return View(model);
-            }
+
+            var model = con.DanhMucs.ToList();
+            return View(model);
+
         }
 
         // GET: Admin/DanhMucAdmin/Details/5
@@ -33,19 +35,20 @@ namespace WebToi_final_01.Areas.Admin.Controllers
 
         // POST: Admin/DanhMucAdmin/Create
         [HttpPost]
+        [CustomAuthorize(Roles = "Admin")]
+
         public ActionResult Create(DanhMuc model)
         {
             try
             {
                 // TODO: Add insert logic here
 
-                using (var con = new Shop())
-                {
-                    con.DanhMucs.Add(model);
-                    con.SaveChanges();
 
-                    return RedirectToAction("Index");
-                }
+                con.DanhMucs.Add(model);
+                con.SaveChanges();
+
+                return RedirectToAction("Index");
+
             }
             catch
             {
@@ -54,30 +57,31 @@ namespace WebToi_final_01.Areas.Admin.Controllers
         }
 
         // GET: Admin/DanhMucAdmin/Edit/5
+        [CustomAuthorize(Roles = "Admin")]
+
         public ActionResult Edit(int id)
         {
-            using (var con = new Shop())
-            {
-                var model = con.DanhMucs.Find(id);
 
-                return View(model);
-            }
+            var model = con.DanhMucs.Find(id);
+
+            return View(model);
+
         }
 
         // POST: Admin/DanhMucAdmin/Edit/5
         [HttpPost]
+        [CustomAuthorize(Roles = "Admin")]
+
         public ActionResult Edit(DanhMuc model)
         {
             try
             {
-                using (var con = new Shop())
-                {
-                    var obj = con.DanhMucs.Find(model.MaDM);
-                    obj.TenDM = model.TenDM;
+                var obj = con.DanhMucs.Find(model.MaDM);
+                obj.TenDM = model.TenDM;
 
-                    con.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                con.SaveChanges();
+                return RedirectToAction("Index");
+
             }
             catch
             {
@@ -86,32 +90,34 @@ namespace WebToi_final_01.Areas.Admin.Controllers
         }
 
         // GET: Admin/DanhMucAdmin/Delete/5
+        [CustomAuthorize(Roles = "Admin")]
+
         public ActionResult Delete(int id)
         {
-            using (var con = new Shop())
-            {
-                var model = con.DanhMucs.Find(id);
 
-                return View("Edit", model);
-            }
+            var model = con.DanhMucs.Find(id);
+
+            return View("Edit", model);
+
         }
 
         // POST: Admin/DanhMucAdmin/Delete/5
         [HttpPost]
+        [CustomAuthorize(Roles = "Admin")]
+
         public ActionResult Delete(DanhMuc model)
         {
             try
             {
                 // TODO: Add delete logic here
 
-                using (var con = new Shop())
-                {
-                    var obj = con.DanhMucs.Find(model.MaDM);
-                    con.DanhMucs.Remove(obj);
 
-                    con.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                var obj = con.DanhMucs.Find(model.MaDM);
+                con.DanhMucs.Remove(obj);
+
+                con.SaveChanges();
+                return RedirectToAction("Index");
+
             }
             catch
             {

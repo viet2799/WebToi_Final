@@ -133,16 +133,20 @@
     <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\ChiTietHD.cs" />
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\SanPham.cs" />
+    <Compile Include="Models\Securities\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Models\Securities\CustomPrincipal.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\ThuocTinh.cs" />
@@ -179,6 +183,8 @@
     <Content Include="Assets\images\8.png" />
     <Content Include="Assets\images\9.png" />
     <Content Include="Assets\images\banner-bg.jpg" />
+    <Content Include="Assets\images\bgbeaty.jpg" />
+    <Content Include="Assets\images\bgImage.jpg" />
     <Content Include="Assets\images\header-logo.png" />
     <Content Include="Assets\js\custom.js" />
     <Content Include="Assets\js\flex-slider.js" />
@@ -276,6 +282,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Shop\Details.cshtml" />
     <Content Include="Views\Shop\DMSP.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.Config">
       <DependentUpon>Web.Config</DependentUpon>
     </None>
