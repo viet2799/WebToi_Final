@@ -51,13 +51,9 @@ namespace WebToi_final_01.Areas.Admin.Controllers
             try
             {
                 // TODO: Add insert logic here
-
-
                 con.DanhMucs.Add(model);
                 con.SaveChanges();
-
                 return RedirectToAction("Index");
-
             }
             catch
             {
@@ -119,14 +115,11 @@ namespace WebToi_final_01.Areas.Admin.Controllers
             try
             {
                 // TODO: Add delete logic here
-
-
                 var obj = con.DanhMucs.Find(model.MaDM);
                 con.DanhMucs.Remove(obj);
 
                 con.SaveChanges();
                 return RedirectToAction("Index");
-
             }
             catch
             {

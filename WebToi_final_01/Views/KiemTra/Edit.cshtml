@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using WebToi_final_01.Models;
+@model SanPham
+
+<div class="content">
+
+    <div class="module">
+        <div class="module-head">
+            <h3>Tạo danh mục</h3>
+        </div>
+        <div class="module-body">
+
+
+
+            <form class="form-horizontal row-fluid" method="post">
+                <div class="control-group">
+                    <label class="control-label" for="basicinput">Mã danh mục</label>
+                    <div class="controls">
+                        <input type="text" id="basicinput" placeholder="Mã danh mục" class="span8" value="@Model.tenS" name="MaDM">
+
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="basicinput">Tên danh mục</label>
+                    <div class="controls">
+                        <input type="text" id="Text1" placeholder="Tên danh mục..." class="span8" value="@Model.TenDM" name="TenDM">
+
+                    </div>
+                </div>
+
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="module-head">
+            <h3></h3>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+

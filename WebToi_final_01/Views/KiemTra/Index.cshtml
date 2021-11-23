@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using WebToi_final_01.Models
+@model List<SanPham>
+
+
+
+<div class="featured container no-gutter">
+
+    <div class="row posts">
+        @foreach (SanPham it in Model)
+        {
+            <div id="1" class="item new col-md-4">
+                <a href="@Url.Action("Details" , new {id =it.MaSP})">
+                    <div class="featured-item">
+                        <img src="~/Assets/images/@it.UrlAnh" alt="">
+                        <h4>@it.TenSP</h4>
+                        <h6>@it.GiaSP</h6>
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+</div>
+
+

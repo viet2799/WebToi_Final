@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,40 +7,30 @@ using WebToi_final_01.Models;
 
 namespace WebToi_final_01.Controllers
 {
-    public class ShopController : Controller
+    public class KiemTraController : Controller
     {
-        private Shop con = new Shop();
-        // GET: Shop
+        private Shop context = new Shop();
+        // GET: KiemTra
         public ActionResult Index()
         {
-            var model = con.SanPhams.ToList();
+            var model = context.SanPhams.ToList();
             return View(model);
         }
-        public ActionResult DMSP(int id)
-        {
-            var model = con.SanPhams.Find(id);
-            return View(model);
-        }
-        public ActionResult TimKiem(string txt)
-        {
-            var model = con.SanPhams.Where(x => x.TenSP.Contains(txt));
-            return View("index",model);
-        }
-        // GET: Shop/Details/5
+
+        // GET: KiemTra/Details/5
         public ActionResult Details(string id)
         {
-            var model = con.SanPhams.Find(id);
+            var model =context.SanPhams.Find(id);
             return View(model);
         }
-        
 
-        // GET: Shop/Create
+        // GET: KiemTra/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Shop/Create
+        // POST: KiemTra/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -57,13 +46,19 @@ namespace WebToi_final_01.Controllers
             }
         }
 
-        // GET: Shop/Edit/5
-        public ActionResult Edit(int id)
+        // GET: KiemTra/Edit/5
+        public ActionResult Edit(int id , DanhMuc danhMuc)
         {
-            return View();
+            DanhMuc danhMuc_Edit = context.DanhMucs.Find(id);
+            danhMuc_Edit.TenDM = danhMuc.TenDM;
+            context.SaveChanges();
+            return Redirect("/KiemTra/Details" + danhMuc.MaDM);
+
+
         }
 
-        // POST: Shop/Edit/5
+
+        // POST: KiemTra/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -79,13 +74,13 @@ namespace WebToi_final_01.Controllers
             }
         }
 
-        // GET: Shop/Delete/5
+        // GET: KiemTra/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Shop/Delete/5
+        // POST: KiemTra/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
