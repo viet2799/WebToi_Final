@@ -29,6 +29,7 @@ namespace WebToi_final_01.Controllers
             var model = con.SanPhams.Find(id);
             return View(model);
         }
+        
 
         // GET: Shop/Create
         public ActionResult Create()
